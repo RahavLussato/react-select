@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Input from 'react-input-autosize';
 import classNames from 'classnames';
-import 'flexboxgrid/dist/flexboxgrid.css';
 
 import stripDiacritics from './utils/stripDiacritics';
 
