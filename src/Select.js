@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Input from 'react-input-autosize';
 import classNames from 'classnames';
+import 'flexboxgrid/dist/flexboxgrid.css';
 
 import stripDiacritics from './utils/stripDiacritics';
 
@@ -946,21 +947,30 @@ const Select = React.createClass({
 				 style={this.props.wrapperStyle}>
 				{this.renderHiddenField(valueArray)}
 				<div ref="control"
-						 className="Select-control"
-						 style={this.props.style}
-						 onKeyDown={this.handleKeyDown}
-						 onMouseDown={this.handleMouseDown}
-						 onTouchEnd={this.handleTouchEnd}
-						 onTouchStart={this.handleTouchStart}
-						 onTouchMove={this.handleTouchMove}>
-                    <span className="Select-multi-value-wrapper" id={this._instancePrefix + '-value'}>
-						{this.renderValue(valueArray, isOpen)}
-						{this.renderInput(valueArray, focusedOptionIndex)}
-                    </span>
+					 className="Select-control"
+					 style={this.props.style}
+					 onKeyDown={this.handleKeyDown}
+					 onMouseDown={this.handleMouseDown}
+					 onTouchEnd={this.handleTouchEnd}
+					 onTouchStart={this.handleTouchStart}
+					 onTouchMove={this.handleTouchMove}>
+					<div ref="values" className="row col-xs-10 middle-xs" style={{overflowY:'auto'}}>
+						<span className="Select-multi-value-wrapper" id={this._instancePrefix + '-value'}>
+							{this.renderValue(valueArray, isOpen)}
+							{this.renderInput(valueArray, focusedOptionIndex)}
+                    	</span>
+					</div>
 					{removeMessage}
-					{this.renderLoading()}
-					{this.renderClear()}
-					{this.renderArrow()}
+					<div ref="options" className="row middle-xs col-xs-1">
+						{this.renderLoading()}
+					</div>
+					<div ref="options" className="row middle-xs col-xs-1">
+						{this.renderClear()}
+					</div>
+					<div ref="options" className="row middle-xs col-xs-1">
+						{this.renderArrow()}
+					</div>
+
 				</div>
 				{isOpen ? this.renderOuter(options, !this.props.multi ? valueArray : null, focusedOption) : null}
 			</div>
