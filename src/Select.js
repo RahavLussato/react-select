@@ -962,8 +962,6 @@ const Select = React.createClass({
 					{removeMessage}
 					<div ref="options" className="row middle-xs col-xs-1">
 						{this.renderLoading()}
-					</div>
-					<div ref="options" className="row middle-xs col-xs-1">
 						{this.renderClear()}
 					</div>
 					<div ref="options" className="row middle-xs col-xs-1">
